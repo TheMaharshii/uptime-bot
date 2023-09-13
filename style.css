@@ -1,0 +1,154 @@
+body {
+  box-sizing: border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:whitesmoke;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  max-width: 900px;
+  max-height: 5340px;
+  margin: 0 auto;
+  grid-gap: 0;
+}
+header {
+  display: flex;
+  margin-top: 30px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.nav-items li {
+  display: inline-block;
+  padding: 0 20px;
+}
+.nav-items a {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.83rem;
+  line-height: 1rem;
+  letter-spacing: -0.01em;
+  color: #030303;
+  transition: 0.2s ease;
+  text-decoration: none;
+}
+
+.line{
+  border-bottom: 2px solid black;
+
+}
+
+.logo {
+  font-style: normal;
+  color: #030303;
+  text-decoration: none;
+}
+
+.main_status {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.status {
+  background-color: lightgreen;
+  width: 100%;
+  border-radius: 3px;
+  text-align: center;
+  padding: 15px 10px;
+  background: rgb(41, 177, 92);
+  color: #fff;
+}
+
+.status > * {
+  display: inline;
+}
+
+
+.logo-section{
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.logos {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+ 
+}
+.logos > span{
+  padding: 0 12px;
+}
+.operationalContainer {
+  margin-top: 50px;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(236, 236, 236);
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 20px;
+}
+
+.component_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+svg {
+  margin-top: 10px;
+}
+
+.bi-check-circle-fill:not(.not) {
+  color: green;
+}
+.bi-x-circle-fill {
+  color: rgb(177, 3, 3);
+}
+.bi-dash-circle-fill {
+  color: #949494;
+}
+.bi-exclamation-circle-fill {
+  color: orange;
+}
+.bi-slash-circle-fill {
+  color: blue;
+}
+
+.bi {
+  padding: 0px 5px;
+}
+
+svg > *{
+  cursor: pointer;
+  background-color: #030303;
+  margin: 0 14px;
+}
+
+#uptime-svg{
+
+ fill: rgb(90, 158, 90);
+}
+
+#uptime-svg > *:hover{
+  fill: green;
+}

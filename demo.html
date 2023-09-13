@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Status Uptime</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <a href="#" class="logo">
+          <h2>Geeksflare</h2>
+        </a>
+        <div class="navigation" id="nav">
+          <ul class="nav-items">
+            <a href="#"><button class="nav-btn">Subscribe</button></a>
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div>
+        <div class="nav-menu-btn"></div>
+      </header>
+      <div class="line"><hr></div>
+
+      <section class="main_status">
+        <div class="status">
+          <i class="bi not bi-check-circle-fill"></i>
+          <h3>All Services operational</h3>
+        </div>
+      </section>
+      <section class="logo-section">
+        <div class="logos">
+          <span> <i class="bi bi-check-circle-fill"></i>Operational </span>
+          <span
+            ><i class="bi bi-dash-circle-fill"></i>Degraded Performance</span
+          >
+          <span>
+            <i class="bi bi-exclamation-circle-fill"></i>Partial outage</span
+          >
+          <span><i class="bi bi-x-circle-fill"></i>Major outage</span>
+          <span> <i class="bi bi-slash-circle-fill"></i>Maintenance</span>
+        </div>
+      </section>
+      <div class="operationalContainer">
+        <div class="componentt">
+          <div class="component_header">
+            <div class="Operational component_name false" id="uptime-component">
+              <div title="Uptime" class="Component__Name-sc-g3c5bz-3 kSinQj">
+                <i class="bi bi-check-circle-fill"></i>Uptime
+              </div>
+            </div>
+            <div class="history" id="uptime-history">
+              100% on the last 90 days
+            </div>
+            <div  id="uptime-data">
+            </div>
+          </div>
+          <svg
+            viewBox="0 0 900 42"
+            preserveAspectRatio="none"
+            class="BarChart__StyledSvg-sc-b8cfwu-0 iWILgR"
+            id="uptime-svg"
+          ></svg>
+        </div>
+      </div>
+
+      <section class="logo-section">
+        <div class="logos">
+          <span> <i class="bi bi-check-circle-fill"></i> Operational </span>
+          <span
+            ><i class="bi bi-dash-circle-fill"></i> Degraded Performance</span
+          >
+          <span>
+            <i class="bi bi-exclamation-circle-fill"></i> Partial outage</span
+          >
+          <span><i class="bi bi-x-circle-fill"></i> Major outage</span>
+          <span> <i class="bi bi-slash-circle-fill"></i> Maintenance</span>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function getFormattedDate() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const day = String(now.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      }
+
+      function updateRectangles() {
+        const svg = document.getElementById("uptime-svg");
+
+        const existingRectangles = svg.querySelectorAll(".green");
+        existingRectangles.forEach((rect) => {
+          svg.removeChild(rect);
+        });
+
+        // Create new rect elements
+        for (let i = 2; i <= 90; i++) {
+          const rect = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "rect"
+          );
+          rect.setAttribute("class", "green");
+          rect.setAttribute("x", i * 10);
+          rect.setAttribute("width", "8");
+          rect.setAttribute("fill", "green");
+          rect.setAttribute("height", "40px");
+          rect.setAttribute("id", `${i}-1694160939688-tooltip`);
+          svg.appendChild(rect);
+        }
+      }
+
+      const svg = document.getElementById("uptime-svg");
+      svg.addEventListener("mouseover", function (event) {
+        const target = event.target;
+        if (target.classList.contains("green")) {
+          const rectId = target.getAttribute("id");
+          const date = getFormattedDate();
+          const history = document.getElementById("uptime-data");
+          history.textContent = `${date} `;
+        }
+      });
+
+      updateRectangles();
+    </script>
+
+    <script>
+      const svg_2 = document.querySelector("svg");
+
+      for (let i = 2; i <= 90; i++) {
+        const rect = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "rect"
+        );
+        rect.setAttribute("class", "green");
+        rect.setAttribute("x", i * 10);
+        rect.setAttribute("width", "8");
+        rect.setAttribute("height", "40px");
+        rect.setAttribute("id", `${i}-1694160939688-tooltip`);
+        svg.appendChild(rect);
+      }
+    </script>
+  </body>
+</html>
