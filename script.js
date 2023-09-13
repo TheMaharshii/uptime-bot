@@ -14,7 +14,6 @@ function getFormattedDate() {
       svg.removeChild(rect);
     });
 
-    // Create new rect elements
     for (let i = 2; i <= 90; i++) {
       const rect = document.createElementNS(
         "http://www.w3.org/2000/svg",
